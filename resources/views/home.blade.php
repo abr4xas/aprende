@@ -6,24 +6,32 @@
 			<h1 class="mb-1 text-4xl font-extrabold leading-none text-gray-900 lg:text-5xl xl:text-6xl sm:mb-3"><a
 					href="#0">Our latest courses</a></h1>
 			<div class="grid h-full grid-cols-12 gap-10 pb-10 mt-8 sm:mt-16">
+				@forelse ($courses as $item)
 				<div
 					class="relative flex flex-col items-start justify-end h-full col-span-12 overflow-hidden rounded-xl group md:col-span-6 xl:col-span-4">
 					<a href="#0"
 						class="block w-full transition duration-300 ease-in-out transform bg-center bg-cover h-96 hover:scale-110 bg-blue-100"
-						style="background-image:url('https://images.unsplash.com/photo-1603349206295-dde20617cb6a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')">
+						style="background-image:url('{{ $item->image }}')">
 					</a>
 					<div
 						class="relative z-20 w-full h-auto py-8 text-white bg-blue-400 border-t-0 border-yellow-200 px-7">
-						<a href="#0" class="inline-block text-lg font-semibold absolute top-0 -mt-5 rounded-full px-4 py-2 uppercase text-blue-500 bg-white">
-							20$
+						<a href="#0"
+							class="inline-block text-lg font-semibold absolute top-0 -mt-5 rounded-full px-4 py-2 uppercase text-blue-500 bg-white">
+							{{
+								$item->price
+							}} $
 						</a>
-						<h2 class="mb-5 text-5xl font-bold"><a href="#0">Healthier Lifestyle</a></h2>
+						<h2 class="mb-5 text-5xl font-bold">
+							<a href="#0">
+							{{ $item->name }}
+							</a>
+						</h2>
 						<div class="mt-10 flex justify-between items-center">
 							<div>
-								<a href="#0" class="inline-block text-xs font-semibold top-0 -mt-3.5 rounded-full px-4 py-2 uppercase text-blue-500 bg-white">Lifestyle8</a>
+								{{-- <a href="#0"
+									class="inline-block text-xs font-semibold top-0 -mt-3.5 rounded-full px-4 py-2 uppercase text-blue-500 bg-white">Lifestyle8</a> --}}
 							</div>
-							<a href="https://collect.criggzdesign.com/index.php/resources/mockups/notepad/"
-								class="flex items-center">
+							<a href="#0" class="flex items-center">
 								<p class="mr-4">Read more</p>
 								<svg xmlns="http://www.w3.org/2000/svg" width="14.125" height="13.358"
 									viewBox="0 0 14.125 13.358">
@@ -37,8 +45,14 @@
 						</div>
 					</div>
 				</div>
+				@empty
+
+				@endforelse
+			</div><div class="mt-8">
+				{{ $courses->withQueryString()->links('vendor.pagination.tailwind') }}
 			</div>
 		</div>
+
 	</section>
 	{{-- <x-landing.cta /> --}}
 </x-layouts.landing>
