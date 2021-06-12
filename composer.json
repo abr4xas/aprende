@@ -10,7 +10,8 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "overtrue/laravel-subscribe": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -49,14 +50,11 @@
 		"test": [
 			"vendor/bin/phpunit --testdox"
 		],
-		"fix": [
-			"vendor/bin/php-cs-fixer fix --allow-risky=yes --verbose"
-		],
 		"phpcbf": [
 			"vendor/bin/phpcbf --standard=PSR12 app"
 		],
-		"all": [
-			"composer phpcbf && composer fix"
+		"fix": [
+			"vendor/bin/php-cs-fixer fix --allow-risky=yes --verbose"
 		]
     },
     "extra": {
