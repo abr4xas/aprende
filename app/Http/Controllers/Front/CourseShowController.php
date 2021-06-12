@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Course;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class CourseShowController extends Controller
 {
@@ -17,26 +17,25 @@ class CourseShowController extends Controller
      */
     public function __invoke(Request $request, Course $course)
     {
+        if ($request->has('subscribe') || $request->has('unsubscribe')) {
+            return $this->toggleSubscription($course);
+        }
 
-		if ($request->has('subscribe')) {
-			return $this->toggleSubscription($course);
-		}
-
-		$showCta = request()->user();
+        $showCta = request()->user();
 
         return view('pages.courses.show', compact('course', 'showCta'));
     }
 
-	/**
-	 * toggleSubscription
-	 *
-	 * @param \Illuminate\Database\Eloquent\Model $model
+    /**
+     * toggleSubscription
+     *
+     * @param \Illuminate\Database\Eloquent\Model $model
      * @return \Illuminate\Http\Response
-	 */
-	public function toggleSubscription(Model $model)
-	{
+     */
+    public function toggleSubscription(Model $model)
+    {
         $user = request()->user();
-		$user->toggleSubscribe($model);
-		return redirect()->route('dashboard');
-	}
+        $user->toggleSubscribe($model);
+        return redirect()->route('dashboard');
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Dash\DashHomeController;
 use App\Http\Controllers\Front\CourseHomeController;
 use App\Http\Controllers\Front\CourseShowController;
+use App\Http\Controllers\Front\HomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

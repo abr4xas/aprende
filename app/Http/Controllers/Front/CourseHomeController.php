@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Course;
-use Illuminate\Http\Request;
-use App\Traits\ScopeByCategory;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Traits\ScopeByCategory;
+use Illuminate\Http\Request;
 
 class CourseHomeController extends Controller
 {
-
     use ScopeByCategory;
+
     protected $courses;
 
     /**
