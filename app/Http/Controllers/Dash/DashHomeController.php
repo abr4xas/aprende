@@ -24,8 +24,6 @@ class DashHomeController extends Controller
 
         $subscriptions = $user->subscriptions()->withType(Course::class)->paginate();
 
-        // dd($subscriptions);
-
         return view('dashboard', compact('show', 'subscriptions'));
     }
 }
