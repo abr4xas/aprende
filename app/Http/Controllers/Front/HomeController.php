@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Traits\ScopeByCategory;
 use Illuminate\Http\Request;
 
-class Home extends Controller
+class HomeController extends Controller
 {
     use ScopeByCategory;
 
