@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Home\Home;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\CourseHomeController;
+use App\Http\Controllers\Front\CourseShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', Home::class)->name('home');
+Route::get('/', HomeController::class)->name('home');
+Route::get('/courses', CourseHomeController::class)->name('courses.home');
+Route::get('/course/{course:slug}', CourseShowController::class)->name('course.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
