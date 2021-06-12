@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Traits\ScopeByCategory;
 use App\Http\Controllers\Controller;
 
 class CourseHomeController extends Controller
 {
 
+    use ScopeByCategory;
     protected $courses;
 
     /**

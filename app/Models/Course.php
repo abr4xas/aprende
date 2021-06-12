@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
-use App\Presenters\Url\UrlPresenter;
 use App\Traits\CanBeScoped;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Presenters\Url\UrlPresenter;
 use Illuminate\Database\Eloquent\Model;
+use Overtrue\LaravelSubscribe\Traits\Subscribable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
     use HasFactory;
     use CanBeScoped;
+    use Subscribable;
 
     /**
      * The attributes that are mass assignable.
