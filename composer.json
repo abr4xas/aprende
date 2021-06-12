@@ -54,9 +54,6 @@
 		],
 		"phpcbf": [
 			"vendor/bin/phpcbf --standard=PSR12 app"
-		],
-		"all": [
-			"composer phpcbf && composer fix"
 		]
     },
     "extra": {

@@ -103,4 +103,5 @@ jobs:
 
     - name: Execute Code Sniffer via phpcs & fix
       run: |
-        composer all
+        composer phpcbf
+        composer fix
