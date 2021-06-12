@@ -45,6 +45,14 @@ $ yarn install
 $ yarn run dev
 ```
 
+test user
+
+```
+john.doe@domain.tld
+secret
+```
+
+
 done! :)
 
 
